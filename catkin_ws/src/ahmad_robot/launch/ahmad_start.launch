@@ -1,0 +1,18 @@
+<launch>
+
+  <include file="$(find ahmad_robot)/launch/planning_context.launch" >
+    <arg name="load_robot_description" value="true" />
+  </include>
+
+
+  <include file="$(find ahmad_robot)/launch/move_group.launch">
+    <arg name="load_robot_description" value="false" />
+    <arg name="moveit_controller_manager" value="ros_control" />
+
+  </include>
+
+  <include file="$(find ahmad_robot)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" value="$(find ahmad_robot)/launch/moveit.rviz"/>
+  </include>
+
+</launch>

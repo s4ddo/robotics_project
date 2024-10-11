@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="locobot">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="arm">
+        <joint name="shoulder"/>
+        <joint name="elbow"/>
+        <joint name="waist"/>
+        <joint name="wrist_angle"/>
+        <joint name="forearm_roll"/>
+        <joint name="wrist_rotate"/>
+    </group>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="locobot/ar_tag_link" link2="locobot/gripper_bar_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/ar_tag_link" link2="locobot/gripper_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/ar_tag_link" link2="locobot/gripper_prop_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/ar_tag_link" link2="locobot/left_finger_link" reason="Never"/>
+    <disable_collisions link1="locobot/ar_tag_link" link2="locobot/lower_forearm_link" reason="Never"/>
+    <disable_collisions link1="locobot/ar_tag_link" link2="locobot/right_finger_link" reason="Never"/>
+    <disable_collisions link1="locobot/ar_tag_link" link2="locobot/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="locobot/ar_tag_link" link2="locobot/wrist_link" reason="Never"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/base_link" reason="Default"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/battery_link" reason="Default"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/camera_link" reason="Never"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/camera_tower_link" reason="Never"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/caster_back_link" reason="Never"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/caster_front_link" reason="Never"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/laser_frame_link" reason="Never"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/lidar_tower_link" reason="Never"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/pan_link" reason="Never"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/plate_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/ros_logical_camera_link" reason="Never"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/shoulder_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/tilt_link" reason="Never"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/upper_arm_link" reason="Never"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/wheel_left_link" reason="Never"/>
+    <disable_collisions link1="locobot/arm_base_link" link2="locobot/wheel_right_link" reason="Never"/>
+    <disable_collisions link1="locobot/base_link" link2="locobot/battery_link" reason="Default"/>
+    <disable_collisions link1="locobot/base_link" link2="locobot/camera_link" reason="Never"/>
+    <disable_collisions link1="locobot/base_link" link2="locobot/camera_tower_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/base_link" link2="locobot/caster_back_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/base_link" link2="locobot/caster_front_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/base_link" link2="locobot/laser_frame_link" reason="Never"/>
+    <disable_collisions link1="locobot/base_link" link2="locobot/lidar_tower_link" reason="Never"/>
+    <disable_collisions link1="locobot/base_link" link2="locobot/pan_link" reason="Never"/>
+    <disable_collisions link1="locobot/base_link" link2="locobot/plate_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/base_link" link2="locobot/ros_logical_camera_link" reason="Never"/>
+    <disable_collisions link1="locobot/base_link" link2="locobot/shoulder_link" reason="Never"/>
+    <disable_collisions link1="locobot/base_link" link2="locobot/tilt_link" reason="Never"/>
+    <disable_collisions link1="locobot/base_link" link2="locobot/wheel_left_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/base_link" link2="locobot/wheel_right_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/battery_link" link2="locobot/camera_link" reason="Never"/>
+    <disable_collisions link1="locobot/battery_link" link2="locobot/camera_tower_link" reason="Default"/>
+    <disable_collisions link1="locobot/battery_link" link2="locobot/caster_back_link" reason="Never"/>
+    <disable_collisions link1="locobot/battery_link" link2="locobot/caster_front_link" reason="Never"/>
+    <disable_collisions link1="locobot/battery_link" link2="locobot/laser_frame_link" reason="Never"/>
+    <disable_collisions link1="locobot/battery_link" link2="locobot/lidar_tower_link" reason="Never"/>
+    <disable_collisions link1="locobot/battery_link" link2="locobot/pan_link" reason="Never"/>
+    <disable_collisions link1="locobot/battery_link" link2="locobot/plate_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/battery_link" link2="locobot/ros_logical_camera_link" reason="Never"/>
+    <disable_collisions link1="locobot/battery_link" link2="locobot/shoulder_link" reason="Never"/>
+    <disable_collisions link1="locobot/battery_link" link2="locobot/tilt_link" reason="Never"/>
+    <disable_collisions link1="locobot/battery_link" link2="locobot/wheel_left_link" reason="Never"/>
+    <disable_collisions link1="locobot/battery_link" link2="locobot/wheel_right_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_link" link2="locobot/caster_back_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_link" link2="locobot/caster_front_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_link" link2="locobot/laser_frame_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_link" link2="locobot/lidar_tower_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_link" link2="locobot/pan_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_link" link2="locobot/plate_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_link" link2="locobot/ros_logical_camera_link" reason="Default"/>
+    <disable_collisions link1="locobot/camera_link" link2="locobot/shoulder_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_link" link2="locobot/tilt_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/camera_link" link2="locobot/upper_arm_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_link" link2="locobot/wheel_left_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_link" link2="locobot/wheel_right_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_tower_link" link2="locobot/caster_back_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_tower_link" link2="locobot/caster_front_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_tower_link" link2="locobot/laser_frame_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_tower_link" link2="locobot/lidar_tower_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/camera_tower_link" link2="locobot/pan_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/camera_tower_link" link2="locobot/plate_link" reason="Default"/>
+    <disable_collisions link1="locobot/camera_tower_link" link2="locobot/shoulder_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_tower_link" link2="locobot/wheel_left_link" reason="Never"/>
+    <disable_collisions link1="locobot/camera_tower_link" link2="locobot/wheel_right_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_back_link" link2="locobot/caster_front_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_back_link" link2="locobot/laser_frame_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_back_link" link2="locobot/left_finger_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_back_link" link2="locobot/lidar_tower_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_back_link" link2="locobot/pan_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_back_link" link2="locobot/plate_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_back_link" link2="locobot/ros_logical_camera_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_back_link" link2="locobot/shoulder_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_back_link" link2="locobot/tilt_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_back_link" link2="locobot/upper_arm_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_back_link" link2="locobot/wheel_left_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_back_link" link2="locobot/wheel_right_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_front_link" link2="locobot/laser_frame_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_front_link" link2="locobot/lidar_tower_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_front_link" link2="locobot/pan_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_front_link" link2="locobot/plate_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_front_link" link2="locobot/ros_logical_camera_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_front_link" link2="locobot/shoulder_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_front_link" link2="locobot/tilt_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_front_link" link2="locobot/upper_arm_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_front_link" link2="locobot/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_front_link" link2="locobot/wheel_left_link" reason="Never"/>
+    <disable_collisions link1="locobot/caster_front_link" link2="locobot/wheel_right_link" reason="Never"/>
+    <disable_collisions link1="locobot/gripper_bar_link" link2="locobot/gripper_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/gripper_bar_link" link2="locobot/gripper_prop_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/gripper_bar_link" link2="locobot/left_finger_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/gripper_bar_link" link2="locobot/lower_forearm_link" reason="Never"/>
+    <disable_collisions link1="locobot/gripper_bar_link" link2="locobot/right_finger_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/gripper_bar_link" link2="locobot/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="locobot/gripper_bar_link" link2="locobot/wrist_link" reason="Never"/>
+    <disable_collisions link1="locobot/gripper_link" link2="locobot/gripper_prop_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/gripper_link" link2="locobot/left_finger_link" reason="Never"/>
+    <disable_collisions link1="locobot/gripper_link" link2="locobot/lower_forearm_link" reason="Never"/>
+    <disable_collisions link1="locobot/gripper_link" link2="locobot/right_finger_link" reason="Never"/>
+    <disable_collisions link1="locobot/gripper_link" link2="locobot/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="locobot/gripper_link" link2="locobot/wrist_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/gripper_prop_link" link2="locobot/left_finger_link" reason="Never"/>
+    <disable_collisions link1="locobot/gripper_prop_link" link2="locobot/lower_forearm_link" reason="Never"/>
+    <disable_collisions link1="locobot/gripper_prop_link" link2="locobot/right_finger_link" reason="Never"/>
+    <disable_collisions link1="locobot/gripper_prop_link" link2="locobot/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="locobot/gripper_prop_link" link2="locobot/wrist_link" reason="Never"/>
+    <disable_collisions link1="locobot/laser_frame_link" link2="locobot/lidar_tower_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/laser_frame_link" link2="locobot/pan_link" reason="Never"/>
+    <disable_collisions link1="locobot/laser_frame_link" link2="locobot/plate_link" reason="Never"/>
+    <disable_collisions link1="locobot/laser_frame_link" link2="locobot/ros_logical_camera_link" reason="Never"/>
+    <disable_collisions link1="locobot/laser_frame_link" link2="locobot/shoulder_link" reason="Never"/>
+    <disable_collisions link1="locobot/laser_frame_link" link2="locobot/tilt_link" reason="Never"/>
+    <disable_collisions link1="locobot/laser_frame_link" link2="locobot/upper_arm_link" reason="Never"/>
+    <disable_collisions link1="locobot/laser_frame_link" link2="locobot/wheel_left_link" reason="Never"/>
+    <disable_collisions link1="locobot/laser_frame_link" link2="locobot/wheel_right_link" reason="Never"/>
+    <disable_collisions link1="locobot/left_finger_link" link2="locobot/lower_forearm_link" reason="Never"/>
+    <disable_collisions link1="locobot/left_finger_link" link2="locobot/right_finger_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/left_finger_link" link2="locobot/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="locobot/left_finger_link" link2="locobot/wrist_link" reason="Never"/>
+    <disable_collisions link1="locobot/lidar_tower_link" link2="locobot/pan_link" reason="Never"/>
+    <disable_collisions link1="locobot/lidar_tower_link" link2="locobot/plate_link" reason="Never"/>
+    <disable_collisions link1="locobot/lidar_tower_link" link2="locobot/ros_logical_camera_link" reason="Never"/>
+    <disable_collisions link1="locobot/lidar_tower_link" link2="locobot/shoulder_link" reason="Never"/>
+    <disable_collisions link1="locobot/lidar_tower_link" link2="locobot/tilt_link" reason="Never"/>
+    <disable_collisions link1="locobot/lidar_tower_link" link2="locobot/upper_arm_link" reason="Never"/>
+    <disable_collisions link1="locobot/lidar_tower_link" link2="locobot/wheel_left_link" reason="Never"/>
+    <disable_collisions link1="locobot/lidar_tower_link" link2="locobot/wheel_right_link" reason="Never"/>
+    <disable_collisions link1="locobot/lower_forearm_link" link2="locobot/right_finger_link" reason="Never"/>
+    <disable_collisions link1="locobot/lower_forearm_link" link2="locobot/upper_forearm_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/lower_forearm_link" link2="locobot/wrist_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/pan_link" link2="locobot/plate_link" reason="Never"/>
+    <disable_collisions link1="locobot/pan_link" link2="locobot/ros_logical_camera_link" reason="Never"/>
+    <disable_collisions link1="locobot/pan_link" link2="locobot/shoulder_link" reason="Never"/>
+    <disable_collisions link1="locobot/pan_link" link2="locobot/tilt_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/pan_link" link2="locobot/upper_arm_link" reason="Never"/>
+    <disable_collisions link1="locobot/pan_link" link2="locobot/wheel_left_link" reason="Never"/>
+    <disable_collisions link1="locobot/pan_link" link2="locobot/wheel_right_link" reason="Never"/>
+    <disable_collisions link1="locobot/plate_link" link2="locobot/ros_logical_camera_link" reason="Never"/>
+    <disable_collisions link1="locobot/plate_link" link2="locobot/shoulder_link" reason="Never"/>
+    <disable_collisions link1="locobot/plate_link" link2="locobot/tilt_link" reason="Never"/>
+    <disable_collisions link1="locobot/plate_link" link2="locobot/upper_arm_link" reason="Never"/>
+    <disable_collisions link1="locobot/plate_link" link2="locobot/wheel_left_link" reason="Never"/>
+    <disable_collisions link1="locobot/plate_link" link2="locobot/wheel_right_link" reason="Never"/>
+    <disable_collisions link1="locobot/right_finger_link" link2="locobot/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="locobot/right_finger_link" link2="locobot/wrist_link" reason="Never"/>
+    <disable_collisions link1="locobot/ros_logical_camera_link" link2="locobot/shoulder_link" reason="Never"/>
+    <disable_collisions link1="locobot/ros_logical_camera_link" link2="locobot/tilt_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/ros_logical_camera_link" link2="locobot/upper_arm_link" reason="Never"/>
+    <disable_collisions link1="locobot/ros_logical_camera_link" link2="locobot/wheel_left_link" reason="Never"/>
+    <disable_collisions link1="locobot/ros_logical_camera_link" link2="locobot/wheel_right_link" reason="Never"/>
+    <disable_collisions link1="locobot/shoulder_link" link2="locobot/tilt_link" reason="Never"/>
+    <disable_collisions link1="locobot/shoulder_link" link2="locobot/upper_arm_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/shoulder_link" link2="locobot/upper_forearm_link" reason="Never"/>
+    <disable_collisions link1="locobot/shoulder_link" link2="locobot/wheel_left_link" reason="Never"/>
+    <disable_collisions link1="locobot/shoulder_link" link2="locobot/wheel_right_link" reason="Never"/>
+    <disable_collisions link1="locobot/tilt_link" link2="locobot/upper_arm_link" reason="Never"/>
+    <disable_collisions link1="locobot/tilt_link" link2="locobot/wheel_left_link" reason="Never"/>
+    <disable_collisions link1="locobot/tilt_link" link2="locobot/wheel_right_link" reason="Never"/>
+    <disable_collisions link1="locobot/upper_arm_link" link2="locobot/upper_forearm_link" reason="Adjacent"/>
+    <disable_collisions link1="locobot/upper_arm_link" link2="locobot/wheel_left_link" reason="Never"/>
+    <disable_collisions link1="locobot/upper_arm_link" link2="locobot/wheel_right_link" reason="Never"/>
+    <disable_collisions link1="locobot/upper_forearm_link" link2="locobot/wrist_link" reason="Never"/>
+    <disable_collisions link1="locobot/wheel_left_link" link2="locobot/wheel_right_link" reason="Never"/>
+</robot>
