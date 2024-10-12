@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/user/catkin_ws/build
 include locobot_simulation/CMakeFiles/_locobot_simulation_generate_messages_check_deps_DetectedObject.dir/progress.make
 
 locobot_simulation/CMakeFiles/_locobot_simulation_generate_messages_check_deps_DetectedObject:
-	cd /home/user/catkin_ws/build/locobot_simulation && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py locobot_simulation /home/user/catkin_ws/src/locobot_simulation/msg/DetectedObject.msg geometry_msgs/Point:std_msgs/ColorRGBA
+	cd /home/user/catkin_ws/build/locobot_simulation && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py locobot_simulation /home/user/catkin_ws/src/locobot_simulation/msg/DetectedObject.msg std_msgs/ColorRGBA:geometry_msgs/Point
 
 _locobot_simulation_generate_messages_check_deps_DetectedObject: locobot_simulation/CMakeFiles/_locobot_simulation_generate_messages_check_deps_DetectedObject
 _locobot_simulation_generate_messages_check_deps_DetectedObject: locobot_simulation/CMakeFiles/_locobot_simulation_generate_messages_check_deps_DetectedObject.dir/build.make

@@ -66,7 +66,7 @@
         </collision>
         <inertial>
             <origin rpy="0 0 0" xyz="0.01 0 0" />
-            <mass value="2.4" />
+            <mass value="10" />
             <inertia ixx="0.019995" ixy="0.0" ixz="0.0" iyy="0.019995" iyz="0.0" izz="0.03675" />
         </inertial>
     </link>
@@ -863,7 +863,7 @@
         <parent link="locobot/fingers_link" />
         <child link="locobot/right_finger_link" />
         <dynamics friction="0.1" />
-        <mimic joint="left_finger" multiplier="-1" offset="0" />
+        <!-- <mimic joint="left_finger" multiplier="-1" offset="0" />
     </joint>
     <transmission name="trans_right_finger">
         <type>transmission_interface/SimpleTransmission</type>

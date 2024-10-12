@@ -1,0 +1,15 @@
+<launch>
+
+
+  <arg name="gazebo_gui" default="true" doc="Start Gazebo GUI"/>
+  <arg name="paused" default="false" doc="Start Gazebo paused"/>
+
+  <include file="$(find locobot_simulation)/launch/simulation_project_allobjects.launch">
+    <arg name="use_trajectory_controllers"        value="true"/>
+    <arg name="use_position_controllers"          value="false"/>
+    <param name="robot_description" textfile="$(find ahmad_robot)/config/gazebo_locobot.urdf" />
+  </include>
+
+
+
+</launch>

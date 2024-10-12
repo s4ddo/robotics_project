@@ -1,5 +1,5 @@
 controller_list:
-  - name: arm_controller
+  - name: locobot/arm_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     default: True
@@ -10,3 +10,25 @@ controller_list:
       - wrist_angle
       - wrist_rotate
       - forearm_roll
+
+  - name: locobot/gripper_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - left_finger
+      - right_finger
+
+  - name: locobot/pan_controller
+    action_ns: point_head
+    type: PointHead
+    default: True
+    joints:
+      - pan
+      
+  - name: locobot/tilt_controller
+    action_ns: point_head
+    type: PointHead
+    default: True
+    joints:
+      - tilt

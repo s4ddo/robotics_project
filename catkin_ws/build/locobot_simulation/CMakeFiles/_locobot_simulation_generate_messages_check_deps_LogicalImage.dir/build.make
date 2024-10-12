@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/user/catkin_ws/build
 include locobot_simulation/CMakeFiles/_locobot_simulation_generate_messages_check_deps_LogicalImage.dir/progress.make
 
 locobot_simulation/CMakeFiles/_locobot_simulation_generate_messages_check_deps_LogicalImage:
-	cd /home/user/catkin_ws/build/locobot_simulation && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py locobot_simulation /home/user/catkin_ws/src/locobot_simulation/msg/LogicalImage.msg geometry_msgs/Quaternion:geometry_msgs/Pose:geometry_msgs/Vector3:geometry_msgs/Point:std_msgs/Header:locobot_simulation/Model
+	cd /home/user/catkin_ws/build/locobot_simulation && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py locobot_simulation /home/user/catkin_ws/src/locobot_simulation/msg/LogicalImage.msg std_msgs/Header:locobot_simulation/Model:geometry_msgs/Pose:geometry_msgs/Point:geometry_msgs/Vector3:geometry_msgs/Quaternion
 
 _locobot_simulation_generate_messages_check_deps_LogicalImage: locobot_simulation/CMakeFiles/_locobot_simulation_generate_messages_check_deps_LogicalImage
 _locobot_simulation_generate_messages_check_deps_LogicalImage: locobot_simulation/CMakeFiles/_locobot_simulation_generate_messages_check_deps_LogicalImage.dir/build.make

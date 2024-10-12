@@ -17,6 +17,17 @@
         <joint name="forearm_roll"/>
         <joint name="wrist_rotate"/>
     </group>
+    <group name="gripper">
+        <joint name="left_finger"/>
+        <joint name="right_finger"/>
+    </group>
+    <group name="camera">
+        <joint name="tilt"/>
+        <joint name="camera"/>
+        <joint name="pan"/>
+    </group>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="gripper" parent_link="locobot/gripper_link" group="gripper" parent_group="arm"/>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="locobot/ar_tag_link" link2="locobot/gripper_bar_link" reason="Adjacent"/>
     <disable_collisions link1="locobot/ar_tag_link" link2="locobot/gripper_link" reason="Adjacent"/>
